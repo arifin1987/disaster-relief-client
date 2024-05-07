@@ -1,17 +1,31 @@
 import { NavLink } from "react-router-dom";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
   return (
-    <nav className="w-full h-full bg-slate-200 md:flex justify-between items-center p-6 ">
+    <nav className=" bg-slate-200 md:flex justify-between items-center p-6 ">
       <h1 className="text-3xl font-semibold ">
         <span className="text-blue-500">D</span>isaster{" "}
         <span className="text-red-600">R</span>elief
       </h1>
-      <ul className="space-x-5">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/">All Donations</NavLink>
-        <NavLink to="/">Donation Detail</NavLink>
-        <NavLink to="/">Login</NavLink>
+      <ul className="space-x-5 ">
+        <NavLink className="text-blue-400 hover:text-green-500" to="/">
+          Home
+        </NavLink>
+        <NavLink className="text-blue-400 hover:text-green-500" to="/">
+          All Donations
+        </NavLink>
+        <NavLink className="text-blue-400 hover:text-green-500" to="/">
+          Donation Detail
+        </NavLink>
+        <NavLink className="text-blue-400 hover:text-green-500" to="/dashboard">
+          Dashboard
+        </NavLink>
+        <Button className="bg-white">
+          <NavLink className="text-blue-400 hover:text-green-500" to="/">
+            Login
+          </NavLink>
+        </Button>
       </ul>
     </nav>
   );
