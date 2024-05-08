@@ -8,7 +8,7 @@ const Navbar = () => {
         <span className="text-blue-500">D</span>isaster{" "}
         <span className="text-red-600">R</span>elief
       </h1>
-      <ul className="space-x-5 ">
+      <ul className=" space-x-5 ">
         <NavLink className="text-blue-400 hover:text-green-500" to="/">
           Home
         </NavLink>
@@ -22,7 +22,7 @@ const Navbar = () => {
           Dashboard
         </NavLink>
         <Button className="bg-white">
-          <NavLink className="text-blue-400 hover:text-green-500" to="/">
+          <NavLink className="text-blue-400 hover:text-green-500" to="/login">
             Login
           </NavLink>
         </Button>
