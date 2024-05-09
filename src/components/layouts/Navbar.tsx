@@ -19,11 +19,11 @@ const Navbar = () => {
         <NavLink className="text-blue-400 hover:text-green-500" to="/dashboard">
           Dashboard
         </NavLink>
-        <Button className="bg-white">
-          <NavLink className="text-blue-400 hover:text-green-500" to="/login">
+        <NavLink to="/login">
+          <Button className="bg-white text-blue-400 hover:text-green-500">
             Login
-          </NavLink>
-        </Button>
+          </Button>
+        </NavLink>
       </ul>
     </nav>
   );

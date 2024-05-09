@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import "./Banner.css";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -11,9 +12,11 @@ const Banner = () => {
         <p className="text-white text-2xl my-2">
           Leading crowdfunding platform
         </p>
-        <Button className="bg-white text-blue-600 font-bold">
-          Start a Disaster Relief
-        </Button>
+        <Link to="/donations">
+          <Button className="bg-white text-blue-600 font-bold">
+            Start a Disaster Relief
+          </Button>
+        </Link>
       </div>
     </div>
   );
