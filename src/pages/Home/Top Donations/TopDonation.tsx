@@ -27,9 +27,11 @@ const TopDonation = () => {
         ))}
       </div>
       <div className="text-center m-4">
-        <Button className="bg-red-500 text-white font-semibold">
-          <Link to="/donations">View All Donations</Link>
-        </Button>
+        <Link to="/donations">
+          <Button className="bg-red-500 text-white font-semibold">
+            View All Donations
+          </Button>
+        </Link>
       </div>
     </div>
   );
