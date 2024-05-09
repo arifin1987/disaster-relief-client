@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
+
+type Inputs = {
+  name: string;
+  email: string;
+  password: string;
+};
 
 const Register = () => {
   const {
@@ -8,8 +14,8 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
-  const onSubmit = (data) => {
+  } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
     reset();
   };
