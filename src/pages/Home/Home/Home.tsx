@@ -1,4 +1,7 @@
+import AboutUs from "../AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
+import Gallery from "../Gallery/Gallery";
+import Testimonials from "../Testimonials/Testimonials";
 import TopDonation from "../Top Donations/TopDonation";
 
 const Home = () => {
@@ -6,6 +9,9 @@ const Home = () => {
     <div>
       <Banner />
       <TopDonation />
+      <Testimonials />
+      <Gallery />
+      <AboutUs />
     </div>
   );
 };

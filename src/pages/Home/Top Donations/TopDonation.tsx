@@ -1,6 +1,8 @@
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { useEffect, useState } from "react";
 import SingleTopDonations from "./SingleTopDonations";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 const TopDonation = () => {
   const [items, setItems] = useState([]);
@@ -23,6 +25,11 @@ const TopDonation = () => {
         {items.map((item) => (
           <SingleTopDonations item={item} />
         ))}
+      </div>
+      <div className="text-center m-4">
+        <Button className="bg-red-500 text-white font-semibold">
+          <Link to="/donations">View All Donations</Link>
+        </Button>
       </div>
     </div>
   );
