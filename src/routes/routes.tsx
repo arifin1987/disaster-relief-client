@@ -5,6 +5,10 @@ import Login from "@/pages/Login/Login";
 import Register from "@/pages/Register/Register";
 import AllDonations from "@/pages/AllDonations/AllDonations";
 import ViewDetails from "@/pages/ViewDetails/ViewDetails";
+import DashboardLayout from "@/components/layouts/DashboardLayout";
+import DashboardHome from "@/pages/Dashboard/DashboardHome/DashboardHome";
+import DashboardAllDonation from "@/pages/Dashboard/DashboardAllDonation/DashboardAllDonation";
+import DashboardCreateDonation from "@/pages/Dashboard/DashboardCreateDonation/DashboardCreateDonation";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +36,24 @@ export const router = createBrowserRouter([
         element: <ViewDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/donations/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardHome />,
+      },
+      {
+        path: "donations",
+        element: <DashboardAllDonation />,
+      },
+      {
+        path: "create-donation",
+        element: <DashboardCreateDonation />,
       },
     ],
   },
