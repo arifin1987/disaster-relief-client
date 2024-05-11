@@ -36,7 +36,9 @@ export const router = createBrowserRouter([
         path: "donations/:id",
         element: <ViewDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/donations/${params.id}`),
+          fetch(
+            `https://disaster-relief-server-xhxr.vercel.app/donations/${params.id}`
+          ),
       },
     ],
   },
@@ -60,7 +62,9 @@ export const router = createBrowserRouter([
         path: "update/:id",
         element: <DashboardUpdateDonation />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/donations/${params.id}`),
+          fetch(
+            `https://disaster-relief-server-xhxr.vercel.app/donations/${params.id}`
+          ),
       },
     ],
   },

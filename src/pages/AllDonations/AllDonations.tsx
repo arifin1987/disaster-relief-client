@@ -4,7 +4,7 @@ import SingleAllDonations from "./SingleAllDonations";
 const AllDonations = () => {
   const [donations, setDonations] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/donations")
+    fetch("https://disaster-relief-server-xhxr.vercel.app/donations")
       .then((res) => res.json())
       .then((data) => setDonations(data));
   }, []);
