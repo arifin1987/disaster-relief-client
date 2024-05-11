@@ -14,7 +14,7 @@ type Inputs = {
 };
 
 const DashboardUpdateDonation = () => {
-  const loadedUser = useLoaderData();
+  const loadedUser = useLoaderData() as Inputs;
   console.log(loadedUser);
 
   const {
@@ -34,7 +34,7 @@ const DashboardUpdateDonation = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0) {
+        if (data) {
           Swal.fire({
             position: "top-end",
             icon: "success",
