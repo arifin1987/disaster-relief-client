@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/" }),
-  tagTypes: ["donation"],
+  tagTypes: ["donations"],
 
   endpoints: (builder) => ({
     getDonations: builder.query({
@@ -11,7 +11,7 @@ export const baseApi = createApi({
         url: "/donations",
         method: "GET",
       }),
-      providesTags: ["donation"],
+      providesTags: ["donations"],
     }),
     addDonations: builder.mutation({
       query: (data) => ({
@@ -19,7 +19,7 @@ export const baseApi = createApi({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["donation"],
+      invalidatesTags: ["donations"],
     }),
     updateDonations: builder.mutation({
       query: (data) => ({
@@ -27,14 +27,14 @@ export const baseApi = createApi({
         method: "PUT",
         body: data,
       }),
-      invalidatesTags: ["donation"],
+      invalidatesTags: ["donations"],
     }),
     deleteDonations: builder.mutation({
       query: (id) => ({
         url: `/donations/${id}`,
-        method: "Delete",
+        method: "DELETE",
       }),
-      invalidatesTags: ["donation"],
+      invalidatesTags: ["donations"],
     }),
   }),
 });

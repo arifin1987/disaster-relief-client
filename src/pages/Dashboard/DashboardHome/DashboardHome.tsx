@@ -1,32 +1,24 @@
-import { PieChart, Pie, ResponsiveContainer } from "recharts";
-
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-  { name: "Group E", value: 278 },
-  { name: "Group F", value: 189 },
-];
+import { useGetDonationsQuery } from "@/redux/api/api";
+import { PieChart, Pie } from "recharts";
 
 const DashboardHome = () => {
+  const { data } = useGetDonationsQuery(undefined);
   return (
     <div className="text-red-500">
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={400} height={400}>
-          <Pie
-            dataKey="value"
-            startAngle={180}
-            endAngle={0}
-            data={data}
-            cx="50%"
-            cy="50%"
-            outerRadius={80}
-            fill="#8884d8"
-            label
-          />
-        </PieChart>
-      </ResponsiveContainer>
+      <h1 className="text-red-500 text-3xl">Donated Amount</h1>
+      <PieChart width={400} height={400}>
+        <Pie
+          dataKey="amount"
+          startAngle={180}
+          endAngle={0}
+          data={data}
+          cx="50%"
+          cy="50%"
+          outerRadius={80}
+          fill="#8884d8"
+          label
+        />
+      </PieChart>
     </div>
   );
 };

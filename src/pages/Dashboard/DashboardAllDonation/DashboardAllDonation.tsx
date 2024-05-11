@@ -17,21 +17,16 @@ type propsType = {
 
 const DashboardAllDonation = () => {
   const { data, isLoading } = useGetDonationsQuery(undefined);
-  const [deleteDonation] = useDeleteDonationsMutation();
-  const handleDelete = (_id: string) => {
-    console.log(_id);
-    deleteDonation(_id);
-
-    if (_id) {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: `deleted successfully`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
-  };
+  const [deleteDonations] = useDeleteDonationsMutation();
+  if (data) {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: `deleted successfully`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
 
   if (isLoading) {
     return <p>loading.....</p>;
@@ -62,12 +57,12 @@ const DashboardAllDonation = () => {
                 <td>{donation.category}</td>
                 <td>${donation.amount}</td>
                 <td>
-                  <Link to={`/dashboard/${donation._id}`}>
+                  <Link to={`/dashboard/update/${donation._id}`}>
                     <Button>Edit </Button>
                   </Link>
                 </td>
                 <td>
-                  <Button onClick={() => handleDelete(donation._id)}>
+                  <Button onClick={() => deleteDonations(donation._id)}>
                     Delete{" "}
                   </Button>
                 </td>

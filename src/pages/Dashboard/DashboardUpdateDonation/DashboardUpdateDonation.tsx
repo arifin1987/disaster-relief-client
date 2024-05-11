@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { useUpdateDonationsMutation } from "@/redux/api/api";
+
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
+
 import Swal from "sweetalert2";
 type Inputs = {
   title: string;
@@ -12,7 +14,9 @@ type Inputs = {
 };
 
 const DashboardUpdateDonation = () => {
-  const [updateDonation] = useUpdateDonationsMutation();
+  const loadedUser = useLoaderData();
+  console.log(loadedUser);
+
   const {
     register,
     handleSubmit,
@@ -20,17 +24,27 @@ const DashboardUpdateDonation = () => {
     reset,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const options = { id, data };
-    updateDonation(options);
-    if (data) {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: `created successfully`,
-        showConfirmButton: false,
-        timer: 1500,
+    console.log(data);
+    fetch(`http://localhost:5000/donations/${loadedUser._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `updated successfully`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       });
-    }
+
     reset();
   };
   return (
