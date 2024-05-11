@@ -1,18 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { useAddDonationsMutation } from "@/redux/api/api";
+import { useUpdateDonationsMutation } from "@/redux/api/api";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-
 type Inputs = {
   title: string;
   amount: number;
   description: string;
   image: string;
   category: string;
+  _id: string;
 };
 
-const DashboardCreateDonation = () => {
-  const [addDonation] = useAddDonationsMutation();
+const DashboardUpdateDonation = () => {
+  const [updateDonation] = useUpdateDonationsMutation();
   const {
     register,
     handleSubmit,
@@ -20,8 +20,8 @@ const DashboardCreateDonation = () => {
     reset,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    addDonation(data);
+    const options = { id, data };
+    updateDonation(options);
     if (data) {
       Swal.fire({
         position: "top-end",
@@ -35,7 +35,7 @@ const DashboardCreateDonation = () => {
   };
   return (
     <div className="w-[50%] mx-auto ">
-      <h1 className="text-red-500 text-2xl my-4">Create Donation</h1>
+      <h1 className="text-red-500 text-2xl my-4">Update Donation</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label className="">Image:</label>
@@ -101,11 +101,11 @@ const DashboardCreateDonation = () => {
           className="border-2 p-4 w-full rounded-md bg-blue-500 text-white-500 my-2 text-white"
           type="submit"
         >
-          Create Donation
+          Update Donation
         </Button>
       </form>
     </div>
   );
 };
 
-export default DashboardCreateDonation;
+export default DashboardUpdateDonation;

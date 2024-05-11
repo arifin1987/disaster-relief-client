@@ -6,6 +6,10 @@ const { Header, Content, Footer, Sider } = Layout;
 
 const items = [
   {
+    key: "Home",
+    label: <NavLink to="/">Home</NavLink>,
+  },
+  {
     key: "Dashboard",
     label: <NavLink to="/dashboard">Dashboard</NavLink>,
     children: [
@@ -25,7 +29,7 @@ const items = [
 
 const DashboardLayout = () => {
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ height: "full", width: "full" }}>
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
