@@ -26,7 +26,7 @@ const DashboardUpdateDonation = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
     fetch(
-      `https://disaster-relief-server-xhxr.vercel.app/donations/${loadedUser._id}`,
+      `https://disaster-relief-server-navy.vercel.app/donations/${loadedUser._id}`,
       {
         method: "PUT",
         headers: {

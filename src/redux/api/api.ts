@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://disaster-relief-server-xhxr.vercel.app/",
+    baseUrl: "https://disaster-relief-server-navy.vercel.app/",
   }),
   tagTypes: ["donations"],
 
