@@ -5,7 +5,7 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://disaster-relief-server-navy.vercel.app/",
   }),
-  tagTypes: ["donations"],
+  tagTypes: ["donate"],
 
   endpoints: (builder) => ({
     getDonations: builder.query({
@@ -13,7 +13,7 @@ export const baseApi = createApi({
         url: "/donations",
         method: "GET",
       }),
-      providesTags: ["donations"],
+      providesTags: ["donate"],
     }),
     addDonations: builder.mutation({
       query: (data) => ({
@@ -21,7 +21,7 @@ export const baseApi = createApi({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["donations"],
+      invalidatesTags: ["donate"],
     }),
     updateDonations: builder.mutation({
       query: (data) => ({
@@ -29,14 +29,14 @@ export const baseApi = createApi({
         method: "PUT",
         body: data,
       }),
-      invalidatesTags: ["donations"],
+      invalidatesTags: ["donate"],
     }),
     deleteDonations: builder.mutation({
       query: (id) => ({
         url: `/donations/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["donations"],
+      invalidatesTags: ["donate"],
     }),
   }),
 });

@@ -18,7 +18,11 @@ type propsType = {
 const DashboardAllDonation = () => {
   const { data, isLoading } = useGetDonationsQuery(undefined);
   const [deleteDonations] = useDeleteDonationsMutation();
-  if (data) {
+
+  if (isLoading) {
+    return <p>loading.....</p>;
+  }
+  if (data.deleteDonations) {
     Swal.fire({
       position: "top-end",
       icon: "success",
@@ -26,10 +30,6 @@ const DashboardAllDonation = () => {
       showConfirmButton: false,
       timer: 1500,
     });
-  }
-
-  if (isLoading) {
-    return <p>loading.....</p>;
   }
   return (
     <div>
