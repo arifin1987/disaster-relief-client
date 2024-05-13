@@ -38,11 +38,19 @@ export const baseApi = createApi({
       }),
       invalidatesTags: ["donate"],
     }),
+    getGratitude: builder.query({
+      query: () => ({
+        url: "/gratitude",
+        method: "GET",
+      }),
+      providesTags: ["donate"],
+    }),
   }),
 });
 
 export const {
   useGetDonationsQuery,
+  useGetGratitudeQuery,
   useAddDonationsMutation,
   useUpdateDonationsMutation,
   useDeleteDonationsMutation,

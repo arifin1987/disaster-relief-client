@@ -15,10 +15,7 @@ const Navbar = () => {
         <NavLink className="text-blue-400 hover:text-green-500" to="/donations">
           All Donations
         </NavLink>
-        <NavLink
-          className="text-blue-400 hover:text-green-500"
-          to="/community-gratitude"
-        >
+        <NavLink className="text-blue-400 hover:text-green-500" to="/gratitude">
           Community Gratitude
         </NavLink>
 

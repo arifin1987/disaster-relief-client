@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
         element: <AllDonations />,
       },
       {
-        path: "community-gratitude",
+        path: "gratitude",
         element: <CommunityGratitude />,
       },
       {
