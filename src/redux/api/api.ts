@@ -24,10 +24,10 @@ export const baseApi = createApi({
       invalidatesTags: ["donate"],
     }),
     updateDonations: builder.mutation({
-      query: (data) => ({
-        url: `/donations/${data.id}`,
+      query: (options) => ({
+        url: `/donations/${options.id}`,
         method: "PUT",
-        body: data,
+        body: options.data,
       }),
       invalidatesTags: ["donate"],
     }),

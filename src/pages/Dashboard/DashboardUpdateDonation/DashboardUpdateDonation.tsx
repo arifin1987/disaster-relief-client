@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useUpdateDonationsMutation } from "@/redux/api/api";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
-
 import Swal from "sweetalert2";
+
 type Inputs = {
   title: string;
   amount: number;
@@ -15,7 +16,7 @@ type Inputs = {
 
 const DashboardUpdateDonation = () => {
   const loadedUser = useLoaderData() as Inputs;
-  console.log(loadedUser);
+  const [updateTodo] = useUpdateDonationsMutation();
 
   const {
     register,
@@ -24,30 +25,44 @@ const DashboardUpdateDonation = () => {
     reset,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-    fetch(
-      `https://disaster-relief-server-navy.vercel.app/donations/${loadedUser._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `updated successfully`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+    // console.log(data);
+    // fetch(
+    //   `https://disaster-relief-server-navy.vercel.app/donations/${loadedUser._id}`,
+    //   {
+    //     method: "PUT",
+    //     headers: {
+    //       "content-type": "application/json",
+    //     },
+    //     body: JSON.stringify(data),
+    //   }
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data) {
+    //       Swal.fire({
+    //         position: "top-end",
+    //         icon: "success",
+    //         title: `updated successfully`,
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //       });
+    //     }
+    //   });
+    // reset();
+    const options = {
+      id: loadedUser._id,
+      data,
+    };
+    updateTodo(options);
+    if (data) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: `updated successfully`,
+        showConfirmButton: false,
+        timer: 1500,
       });
-
+    }
     reset();
   };
   return (

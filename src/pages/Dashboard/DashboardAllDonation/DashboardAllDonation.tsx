@@ -4,7 +4,6 @@ import {
   useGetDonationsQuery,
 } from "@/redux/api/api";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 
 type propsType = {
   title: string;
@@ -22,15 +21,7 @@ const DashboardAllDonation = () => {
   if (isLoading) {
     return <p>loading.....</p>;
   }
-  if (data.deleteDonations) {
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: `deleted successfully`,
-      showConfirmButton: false,
-      timer: 1500,
-    });
-  }
+
   return (
     <div>
       <h2>Total Users:{data.length}</h2>
