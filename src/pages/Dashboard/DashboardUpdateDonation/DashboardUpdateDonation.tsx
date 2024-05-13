@@ -25,30 +25,6 @@ const DashboardUpdateDonation = () => {
     reset,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    // console.log(data);
-    // fetch(
-    //   `https://disaster-relief-server-navy.vercel.app/donations/${loadedUser._id}`,
-    //   {
-    //     method: "PUT",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(data),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data) {
-    //       Swal.fire({
-    //         position: "top-end",
-    //         icon: "success",
-    //         title: `updated successfully`,
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //       });
-    //     }
-    //   });
-    // reset();
     const options = {
       id: loadedUser._id,
       data,

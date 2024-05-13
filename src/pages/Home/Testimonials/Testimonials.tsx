@@ -21,7 +21,7 @@ interface reviewType {
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("https://disaster-relief-server-navy.vercel.app/reviews")
+    fetch("https://disaster-relief-version-2.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

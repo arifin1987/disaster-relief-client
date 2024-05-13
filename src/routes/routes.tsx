@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
         element: <ViewDetails />,
         loader: ({ params }) =>
           fetch(
-            `https://disaster-relief-server-navy.vercel.app/donations/${params.id}`
+            `https://disaster-relief-version-2.vercel.app/donations/${params.id}`
           ),
       },
     ],
@@ -63,7 +63,7 @@ export const router = createBrowserRouter([
         element: <DashboardUpdateDonation />,
         loader: ({ params }) =>
           fetch(
-            `https://disaster-relief-server-navy.vercel.app/donations/${params.id}`
+            `https://disaster-relief-version-2.vercel.app/donations/${params.id}`
           ),
       },
     ],
