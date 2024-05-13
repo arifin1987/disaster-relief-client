@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { FaHome, FaUserShield } from "react-icons/fa";
 
 import { Layout, Menu } from "antd";
 
@@ -7,11 +8,25 @@ const { Header, Content, Footer, Sider } = Layout;
 const items = [
   {
     key: "Home",
-    label: <NavLink to="/">Home</NavLink>,
+    label: (
+      <NavLink to="/" className="flex items-center gap-4  ">
+        <span className="text-blue-500">
+          <FaHome />
+        </span>
+        Home
+      </NavLink>
+    ),
   },
   {
     key: "Dashboard",
-    label: <NavLink to="/dashboard">Dashboard</NavLink>,
+    label: (
+      <NavLink to="/dashboard" className="flex items-center gap-4  ">
+        <span className="text-blue-500">
+          <FaUserShield />
+        </span>
+        Dashboard
+      </NavLink>
+    ),
     children: [
       {
         key: "donations",

@@ -10,6 +10,7 @@ import DashboardHome from "@/pages/Dashboard/DashboardHome/DashboardHome";
 import DashboardAllDonation from "@/pages/Dashboard/DashboardAllDonation/DashboardAllDonation";
 import DashboardCreateDonation from "@/pages/Dashboard/DashboardCreateDonation/DashboardCreateDonation";
 import DashboardUpdateDonation from "@/pages/Dashboard/DashboardUpdateDonation/DashboardUpdateDonation";
+import CommunityGratitude from "@/pages/CommunityGratitude/CommunityGratitude";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "donations",
         element: <AllDonations />,
+      },
+      {
+        path: "community-gratitude",
+        element: <CommunityGratitude />,
       },
       {
         path: "donations/:id",
