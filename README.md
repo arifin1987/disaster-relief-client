@@ -4,4 +4,5 @@
 
 ## Mongodb crud operation used in backednd.
 
-##live client link:
+##live client link:https://disaster-relief-client.vercel.app/
+##live server link: https://disaster-relief-version-2.vercel.app/
